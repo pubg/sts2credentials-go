@@ -1,0 +1,34 @@
+before:
+  hooks:
+    - go mod tidy
+builds:
+  - id: sts2credentials
+    main: main.go
+    binary: sts2credentials
+    env:
+      - CGO_ENABLED=0
+    goos:
+      - linux
+      - darwin
+      - windows
+    goarch:
+      - amd64
+      - arm64
+      - ppc64le
+    goarm: [6, 7]
+archives:
+  - id: sts2credentials-archive
+    name_template: |-
+      sts2credentials_{{ .Tag }}_{{ .Os }}_{{ .Arch -}}
+    builds:
+      - sts2credentials
+    format_overrides:
+      - goos: windows
+        format: zip
+    files: ["LICENSE"]
+checksum:
+  name_template: "checksums.txt"
+  algorithm: sha256
+release:
+  extra_files:
+    - glob: ./sts2credentials
