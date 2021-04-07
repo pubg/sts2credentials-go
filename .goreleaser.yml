@@ -7,6 +7,8 @@ builds:
     binary: sts2credentials
     env:
       - CGO_ENABLED=0
+    ldflags:
+      - -s
     goos:
       - linux
       - darwin
