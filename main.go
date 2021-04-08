@@ -23,7 +23,7 @@ func parseOptions() string {
 		return envProfile
 	}
 
-	flagProfile := flag.String("flagProfile", "sts", "flagProfile name to stored")
+	flagProfile := flag.String("profile", "sts", "flagProfile name to stored")
 	flag.Parse()
 	return *flagProfile
 }

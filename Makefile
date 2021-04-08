@@ -6,4 +6,3 @@ build-all:
 
 release:
 	goreleaser release --rm-dist
-
