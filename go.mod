@@ -1,3 +1,3 @@
-module github.com/uanid/sts2credentials-go
+module github.com/pubg/sts2credentials-go
 
-go 1.15
+go 1.17
